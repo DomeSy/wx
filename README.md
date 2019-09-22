@@ -2,5 +2,5 @@
 微信小程序
 
 musicApp
-[网易云音乐地址]:https://github.com/Binaryify/NeteaseCloudMusicApi
-后端需要配置[网易云音乐地址]
+- - -
+后端需要配置[网易云音乐地址] https://github.com/Binaryify/NeteaseCloudMusicApi
