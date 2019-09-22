@@ -1,0 +1,6 @@
+<!-- 自定义组件 -->
+<view>{{nowIn}} is here</view>
+<view id="view" class="pressBtn" data-name="容器">
+  <view>{{magicNumber}}</view>
+  <text bind:tap="onTap" id="text" data-name="文字">点按我可以打印信息</text>
+</view>

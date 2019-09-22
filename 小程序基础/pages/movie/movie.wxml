@@ -1,0 +1,7 @@
+<view>
+  Movie
+</view>
+
+<navigator url="/pages/about/about">about</navigator>
+
+<button bind:tap="onCache">缓存数据</button>

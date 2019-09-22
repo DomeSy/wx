@@ -1,0 +1,30 @@
+<!-- 使用模板template -->
+<template name="stringName">
+    <view>{{name}}</view>
+  </template>
+  
+  <template name="renderList">
+    <!-- block:辅助的模块，并不会渲染，只是在判断条件上平级的情况下使用 -->
+    <block 
+      wx:if="{{socre===80}}"
+    >
+      <view>{{name}}</view>
+      <view>{{socre}}</view>
+      <view>等级</view>
+    </block>
+    <block 
+      wx:else
+    >
+      学生不符合要求
+    </block>
+  </template>
+  
+  <template name="ofCondition">
+      <!-- 条件渲染 -->
+      <view
+      wx:if="{{socre > 70 && socre < 90}}"
+    >
+      等级B
+    </view>
+  </template>
+  

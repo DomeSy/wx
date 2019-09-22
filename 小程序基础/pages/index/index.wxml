@@ -1,0 +1,105 @@
+<!-- 引入import -->
+<import src="template.wxml"/>
+
+<wxs src="tool.wxs" module="tool"></wxs>
+<!-- <wxs module="tool">
+  function createNames(names){
+    return names.split(',');
+  }
+  
+  module.exports = createNames;
+</wxs> -->
+
+
+
+<!--index.wxml-->
+<view class="container" bind:tap="onContainerTap">
+
+  <!-- <template is="ofCondition" data="{{name, score}}"></template> -->
+
+  <!-- 获取多个列表 -->
+  <!-- <view wx:for="{{names2}}" wx:key="id">
+    {{item.name}}
+  </view>
+
+  <include src="header.wxml"/>
+
+  <template is="renderList" data="{{names2:names2}}"></template>
+
+  <include src="header.wxml"/> -->
+
+  <!-- 使用模板时用is来对应详情的模板 -->
+  <!-- <template is="stringName" data="{{name:'Mate'}}"> -->
+  <!-- </template> -->
+ 
+  <!-- 事件冒泡：点击文字也会触发onTap事件 -->
+  <!-- 也可以在data里面存放信息，以data-开头 -->
+  <!-- <view id="view" class="pressBtn" data-name="容器">
+    <view>{{magicNumber}}</view>
+    <text bind:tap="onTap" id="text" data-name="文字">点按我可以打印信息</text>
+  </view> -->
+  <!-- <magic-number now-in="Index" bind:getMagicNumber="onGetMagicMumber"></magic-number> -->
+  <!-- hidden:隐藏，默认为false，写hidden相当月hidden={{true}} -->
+  <!-- <view
+    class="num"
+    id="num"
+    style="color: #3E99C6"
+    bind:tap="onNumTap"
+  >
+    {{num}}
+  </view> -->
+
+  <view>首页</view>
+  <navigator
+    url="/pages/movie/movie"
+    open-type="navigate"
+  >movie</navigator>
+  <navigator url="/pages/about/about">about</navigator>
+
+  <!-- 用户授权 -->
+  <button
+    open-type="getUserInfo"
+    bindgetuserinfo="onGetUserInfo"
+  >获取用户信息</button>
+
+  <button
+    bind:tap="onTaps"
+  >获取信息试试</button>
+
+  <!-- 获取地理授权位置 -->
+  <button bind:tap="onAuthLocation">
+    授权位置
+  </button>
+
+  <button
+    bind:tap="onGetLocation"
+  >
+    获取位置信息
+  </button>
+  <button
+    bind:tap="onGetSetting"
+  >
+    获取授权的信息
+  </button>
+
+  <button
+    bind:tap="onGotoSetting"
+  >
+    打开授权信息面板
+  </button>
+  <!-- 组件 -->
+  <!-- <progress percent="60" color='#F17234'></progress> -->
+
+  <!-- <input type="text" value="kkk" bindinput="onInputChange" /> -->
+  <!-- <progress percent="60" color="#F17234" ></progress> -->
+  <!-- <view
+    wx:for="{{tool(names)}}"
+  >
+
+  {{item}}
+  </view> -->
+
+  <button bind:tap="onReq">
+    请求服务
+  </button>
+</view>

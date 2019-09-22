@@ -1,0 +1,7 @@
+function createNames(names){
+  var arr = names.split(',')
+  return arr;
+}
+
+
+module.exports = createNames;

@@ -1,0 +1,5 @@
+.pressBtn{
+  padding-top: 50rpx;
+  background: #26b1d2;
+  width: 375rpx;
+}

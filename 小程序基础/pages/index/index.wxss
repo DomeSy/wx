@@ -1,0 +1,9 @@
+@import '../../common/style/common.wxss';
+page{
+  height: 100%;
+}
+/* .pressBtn{
+  padding-top: 50rpx;
+  background: #26b1d2;
+  width: 375rpx;
+} */
