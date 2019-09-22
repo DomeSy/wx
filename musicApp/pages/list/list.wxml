@@ -1,0 +1,8 @@
+<view wx:for='{{list}}' class="wrap" wx:key="id" bind:tap="onTap" data-id='{{item.id}}'>
+  <!-- 在开发者工具中的AppData查看请求到的数据 -->
+  <image src='{{item.al.picUrl}}' ></image>
+  <view class="introduce">
+    <view>{{item.name}}</view>
+    <view>{{item.ar[0].name}}</view>
+  </view>
+</view>

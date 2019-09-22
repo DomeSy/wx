@@ -1,0 +1,19 @@
+page{
+  background-color: #333;
+}
+.wrap{
+  padding: 20rpx;
+  display: flex;
+}
+.wrap image{
+  width: 200rpx;
+  height: 200rpx;
+}
+.introduce{
+  font-size: 14px;
+  width: 510rpx;
+  line-height: 2;
+  color: #fff;
+  text-indent:50rpx;
+  background-color: #222;
+}

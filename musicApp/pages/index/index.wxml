@@ -1,0 +1,4 @@
+<view wx:for="{{ type }}" wx:key="index" class="wrap" bind:tap='onTap' data-id="{{index}}">
+  <text class="index">{{ index + 1}}.</text>
+  <text class="text">{{ item[index] }}}</text>
+</view>

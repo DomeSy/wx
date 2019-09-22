@@ -1,0 +1,13 @@
+page{
+  background-color: #ccc;
+}
+.wrap{
+  padding: 30rpx;
+  margin: 20rpx;
+  background-color: #fff;
+}
+.index{
+  font-size: 30px;
+  color: aqua;
+  margin-right: 50rpx;
+}
