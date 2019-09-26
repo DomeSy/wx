@@ -1,0 +1,23 @@
+使用模板(template)
+1>template模板，应用时必须写入name属性，以此来对应模板的名称
+如：
+<template name="stringName">
+  <view>{{name}}</view>
+</template>
+2>使用模板
+  <!-- 使用模板时用is来对应详情的模板 -->
+  <template is="stringName" data="{{name:'Mate'}}">
+  </template>
+注：
+a.is对应上述模板使用的名字
+b.data对应要在模板中使用的属性名，对象形式
+3>两种引入方式
+a.template:上述的方式
+引入时可用import引入
+如：
+<import src="template.wxml"/>
+注：这种方式必须要有对应的teplate模板名称
+b.include方式
+直接在单独的文件写入对应的模板即可，直接会对应写入的内容
+如：
+<include src="header.wxml"/>
