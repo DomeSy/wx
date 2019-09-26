@@ -1,0 +1,48 @@
+请求数据
+1>请求数据  wx.request
+onReq(){
+    wx.request({
+      url: 'http://localhost:3000/hello',
+      data: {
+        name:'Joe'
+      },
+      method:"POST",
+      success: res => {
+        console.log(res);
+      }
+    })
+  }
+注：
+a.url: 请求的地址
+b.name：请求的数据名
+c.method: 请求数据的方式
+d.当测试本地时，域名会又不和法的情况，在开发工具中的详情(本地设置)，有不校验合法域名选项，需勾上，如
+
+2>请求成功的话
+a.为res中的data会存储数据
+b.header:请求头
+c.statusCode：状态码
+3>界面交互
+a.小弹窗的页面交互showToast
+        wx.showToast({
+          title:"请求成功"
+        })
+b.交互的加载 
+请求中 wx.showLoading   wx.hideLoading();
+  onReq(){
+    wx.showLoading({
+      title: '请求中'
+    }),
+    wx.request({
+      url: 'http://localhost:3000/hello',
+      data: {
+        name:'Joe'
+      },
+      method:"POST",
+      success: data => {
+
+        wx.hideLoading();
+        console.log(data);
+      }
+    })
+  }
