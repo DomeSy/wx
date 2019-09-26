@@ -1,0 +1,16 @@
+路由导航
+1>组件 navigator  
+a.url
+b.open-type:
+navigate              跳转到（默认）
+redirect                重定向（回退后直接到主页面，不会二次回退） 
+switchTab            跳到某个tab的页面
+navigateBack      回退
+reLaunch             重加载（整个应用只加载了这个页面）
+2>api方法进行导航
+如
+navigate => wx.navigateTo(OBJECT)                  跳转到
+redirect => wx.redirect(OBJECT)                         重定向
+switchTab => wx.switchTab (OBJECT)                 跳到某个tab的页面
+navigateBack => wx.navigateBack (OBJECT)      回退
+reLaunch => wx.reLaunch (OBJECT)                   重加载
