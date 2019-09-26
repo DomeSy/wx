@@ -1,0 +1,20 @@
+1>在app.js中注册实例
+在会得到一个程序的实例，可以被其他页面访问到
+App({
+gldDate:{
+a:1
+}
+})
+2>在页面内通过Page({})来注册实例
+a.通过const app = getApp()来获取app内所的到的实例
+console.log(app.gldData);   //{a:1}
+b.页面内的实例
+Page({
+  pageDate:{
+    b:2
+  }
+）
+c.在Page中的onLoad函数中，通过this即可获取到实例
+在onLoad:function(){
+ console.log(this.pageDate,);  // {b:2}
+}
