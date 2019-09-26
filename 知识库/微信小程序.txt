@@ -1,0 +1,26 @@
+微信小程序
+1>程序主体：
+app.js
+app.json	    程序配置(全局配置)
+app.wxss     公共样式
+2>页面
+index.js
+index.json 页面配置
+index.wxss 页面样式
+index.wxml 页面结构
+3>程序配置(app.json)
+pages 页面路径
+a.增加文件名，直接写文件即可，可以通过导航那些进入
+window 页面的窗口表现
+taBar 底部 tab 切换
+networkTimeout 网络超时（各类网络请求的超时时间，单位均为毫秒。）
+debug 是否开调试
+4>页面配置
+window 页面的窗口表现
+5>vscode插件：
+vscode weapp api 为vscode提供小程序API提示及代码片段
+vscode wxml 为Vscode提供 wxml 语法支持及代码片段
+vscode-wechat 
+Easy WXLESS
+6>注：
+a.创建新的文件夹，即新的页面，必须保证所有文件名一致
