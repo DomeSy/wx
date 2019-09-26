@@ -1,0 +1,121 @@
+授权与用户信息授权
+1>部分接口需要经过用户授权同意才能调用。我们把这些接口按使用范围分成多个 scope ，用户选择对 scope 来进行授权，当授权给一个 scope 之后，其对应的所有接口都可以直接使用。
+2>此类接口调用时：
+a.如果用户未接受或拒绝过此权限，会弹窗询问用户，用户点击同意后方可调用接口；
+b.如果用户已授权，可以直接调用接口；
+c.如果用户已拒绝授权，则不会出现弹窗，而是直接进入接口 fail 回调。请开发者兼容用户拒绝授权的场景。
+3>授权方式
+a.用户信息：
+A.授权button
+如
+  <button
+    open-type="getUserInfo"
+    bindgetuserinfo="onGetUserInfo"
+  >获取用户信息</button>
+1)如果点击取消
+则可以再detail中的errMasg获取错误信息
+2)如果点击确认
+可以再detail中的userInfo获取到相关的信息
+B.api获取
+如：
+  <button
+  bind:tap="onTaps"
+>获取信息试试</button>
+在index.js中
+  onTaps(e){
+    wx.getUserInfo({
+      success: msg=>{
+        console.log(msg,'success');
+      },
+      fail: e=>{
+        console.log(e, 'fail');
+      }
+    })
+  }
+b.其他信息授权：
+wx.authorize(OBJECT)的api先进行授权，直接获取信息，未授权会先进行授权
+3>scope 列表
+a.scope.userInfo
+1)对应接口：wx.getUserInfo
+2)描述：用户信息
+b.scope.userLocation
+1)对应接口：wx.getLocation, wx.chooseLocation
+2)描述：地理位置
+c.scope.userLocationBackground
+1)对应接口：wx.startLocationUpdateBackground
+2)描述：后台定位
+d.scope.address
+1)对应接口：wx.chooseAddress
+2)描述：通讯地址
+e.scope.invoiceTitle
+1)对应接口：wx.chooseInvoiceTitle
+2)描述：发票抬头
+f.scope.invoice
+1)对应接口：wx.chooseInvoice
+2)描述：获取发票
+g.scope.werun
+1)对应接口：wx.getWeRunData
+2)描述：微信运动步数
+h.scope.record
+1)对应接口：wx.startRecord
+2)描述：录音功能
+i.scope.writePhotosAlbum
+1)对应接口：	wx.saveImageToPhotosAlbum, 			
+     wx.saveVideoToPhotosAlbum
+2)描述：保存到相册
+j.scope.camera
+1)对应接口：camera 组件
+2)描述：摄像头
+4>获取其他信息授权（位置）
+a.在index.wxml文件中
+  <button
+    bind:tap="onGetLocation"
+  >
+    获取位置信息
+  </button>
+b.在app.json中配置permission
+  "permission":{
+    "scope.userLocation":{
+      "desc":"您好，我是domesy"
+    }
+  }
+desc为可以在授权时显示的一段话
+c.在index文件中
+  onGetLocation(){
+    wx.getLocation({
+      success:msg => console.log(msg, '位置'),
+      fail: e => console.log(e, '没获取到位置')
+    })
+  }
+5>获取地理位置
+a.在index.wxml文件中
+  <button
+    bind:tap="onGetSetting"
+  >
+    获取授权的信息
+  </button>
+b.在index文件中
+  onGetSetting(){
+    wx.getSetting({
+      success:msg => console.log(msg, '授权相关信息')
+    })
+  }
+c.注
+1)如果没有经过授权，会自动有授权的弹框
+2)如果不同意授权，则在缓存中存在不同意授权，无法再次点击，要想重新点击需要清缓存，或者到控制面板中控制获取信息的权限
+6>授权控制面板获取权限
+a.在index.wxml文件中
+  <button
+    bind:tap="onGotoSetting"
+  >
+    打开授权信息面板
+  </button>
+b.在index文件中
+  onGotoSetting(){
+    wx.openSetting({
+      success:msg=>console.log(msg, '设置完成')
+    })
+  }
+c.如下图
+
+d.这里只会有拒绝同意时的权限设置
