@@ -1,0 +1,16 @@
+小程序样式
+1>后缀名：wxss
+2>单位：rpx 规定屏幕宽为750px
+3>支持的选择器：
+.class
+#id
+element
+:after
+:before
+4>页面的wxss是局部的，但在app.wxss是全局样式
+5>引入样式
+@import ‘路径名’
+6>行内必须用style，是一个字符串
+如
+ <text style="font-size: 20pt;color: {{color}}" id="text" data-name="文字">点按我可以打印信息</text>
+注意单位：pt代表像素单位
