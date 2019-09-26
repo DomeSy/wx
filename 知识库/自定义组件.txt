@@ -1,0 +1,57 @@
+自定义组件
+1>新创建一个文件夹
+如
+
+2>在index.js中写入
+Component({
+
+})
+3>在index.json进行配置
+{
+  "component": true,
+}
+4>然后在使用的模板下的index.json文件进行配置
+
+{
+  "usingComponents": {
+    "magic-number": "/pages/magicNumber/index"
+  }
+}
+5>在写入事件的函数时，要在method：{}进行处理
+如：
+  methods: {
+    onTap(event){
+
+      this.setData({
+        magicNumber:Math.random()
+      });
+    },
+  }
+6>将组件内的数据传入父组件，可用triggerEvent
+如：
+ this.triggerEvent('getMagicNumber', this.data.magicNumber);
+说明：triggerEvent点击后会触发一个事件，第一个参数，事件名，第二个是参数，要传入的数据，可以是任意类型
+ 7>在父组件使用,a.在index.wxml
+<magic-number bind:getMagicNumber="onGetMagicMumber"></magic-number>
+b.这里的getMagicNumber要与triggerEvent的事件名相同，然后定义新的名称为onGetMagicMumber。
+c.在index.js中定义onGetMagicMumber，而自定义组件所传的数据在detail中
+如： 
+ onGetMagicMumber(event){
+    // console.log(event);
+
+    // 可以通过detail拿到传入的值
+    this.setData({
+      num: Math.floor(event.detail*1000)
+    })
+8>从组件内拿到数据
+a.必须写为烤串式
+   <magic-number now-in="Index" ></magic-number>
+b.在自定义组件内,使用properties，此时为驼峰式，限制类型
+       Component({
+  // 接收一个组件，此时是驼峰式
+  properties:{
+    nowIn: String
+  },
+)}
+c.在index.js中，
+直接使用{{nowIn}}即可
