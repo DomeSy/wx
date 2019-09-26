@@ -1,0 +1,28 @@
+使用缓存（在Storage中查看）
+1>异步存储 wx.setStorage
+    wx.setStorage({
+      key:'name',
+      data:{
+        p1:'Matt'
+      },
+      success: ()=>{
+        console.log('存储数据成功');
+      }
+    })
+注：a.key 对应的存储名，
+ b. data 代表存储的数据
+取出数据  wx.getStorage
+        wx.getStorage({
+          key: 'name',
+          success: (data) =>{
+            console.log(data);
+          }
+        })
+   删除缓存 wx.removeStorage
+2>同步缓存 setStorageSync
+    wx.setStorageSync('names', 'Domesy');
+    获取数据 getStorageSync
+    let ns = wx.getStorageSync('names');
+    console.log(ns);
+3>  删除缓存 wx.removeStorageSync
+   wx.removeStorageSync('names');
